@@ -345,14 +345,14 @@ async def save_shortlink(client, message):
     try:
         _, url, api = message.text.split(" ", 2)
     except:
-        return await message.reply_text("<b>Command Incomplete:-\n\ngive me a shortlink & api along with the command...\n\nEx:- <code>/shortlink mdisklink.link 5843c3cc645f5077b2200a2c77e0344879880b3e</code>")
+        return await message.reply_text("<b>Incomplete:-\n\nContact Developer...\n\nEx:- <code>@moviez_areas</code>")
     
     try:
         shortzy = Shortzy(api_key=api, base_site=url)
         link = f'https://t.me/{temp.U_NAME}'
         await shortzy.convert(link)
     except:
-        return await message.reply_text("Your shortlink API or URL invalid, Please Check again!")
+        return await message.reply_text("Your URL invalid, Please Check again!")
     
     await save_group_settings(grp_id, 'url', url)
     await save_group_settings(grp_id, 'api', api)
